@@ -4,7 +4,9 @@ import './App.css';
 function App() {
 
 function onButtonClick() {
-  window.open("amitdeeplink://amitdeeplink.com");
+  // window.location.href = "amitdeeplink://amitdeeplink.com"
+  window.location = "amitdeeplink://amitdeeplink.com"
+  // window.open("amitdeeplink://amitdeeplink.com");
 }
 
   return (
