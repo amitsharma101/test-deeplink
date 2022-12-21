@@ -24,6 +24,22 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+
+    <script src="https://cdn.auth0.com/js/auth0/9.11/auth0.min.js"></script>
+    <script>
+      var webAuth = new window.auth0.WebAuth({
+        domain:       'neobrix-gamepay.us.auth0.com',
+        clientID:     'QclomwNvig31IxmYN4URxlo8ECTO0A4G',
+        responseType: 'token',
+        redirectUri: 'amitdeeplink://amitdeeplink.com',
+      });
+
+      // Trigger login with google
+      webAuth.authorize({
+        connection: 'google-oauth2'
+      });
+
+    </script>
     <title>React App</title>
   </head>
   <body>
