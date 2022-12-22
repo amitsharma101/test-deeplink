@@ -29,7 +29,7 @@
     <script>
       var webAuth = new window.auth0.WebAuth({
         domain:       'neobrix-gamepay.us.auth0.com',
-        clientID:     'QclomwNvig31IxmYN4URxlo8ECTO0A4G',
+        clientID:     process.env.REACT_APP_CLIENT_ID,
         responseType: 'id_token token',
         redirectUri: 'neobrix://s9y.gg',
       });

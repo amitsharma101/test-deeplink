@@ -1,11 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import About from "./About.js";
-import { BrowserRouter } from 'react-router-dom'
 import auth0 from 'auth0-js';
+import { useEffect } from 'react';
 
 function App() {
+
+  useEffect(() => {
+    var webAuth = new auth0.WebAuth({
+      domain:       'neobrix-gamepay.us.auth0.com',
+      clientID:     process.env.REACT_APP_CLIENT_ID,
+      responseType: 'id_token token',
+        redirectUri: 'neobrix://s9y.gg',
+    });
+  
+    // Trigger login with google
+    webAuth.authorize({
+      connection: 'google-oauth2'
+    });
+  }, [])
 
 function onButtonClick() {
   // window.location.href = "amitdeeplink://amitdeeplink.com"
@@ -14,7 +27,7 @@ function onButtonClick() {
 
   var webAuth = new auth0.WebAuth({
     domain:       'neobrix-gamepay.us.auth0.com',
-    clientID:     'QclomwNvig31IxmYN4URxlo8ECTO0A4G',
+    clientID:     process.env.REACT_APP_CLIENT_ID,
     responseType: 'token',
     redirectUri: 'amitdeeplink://amitdeeplink.com',
   });
@@ -30,12 +43,6 @@ function onButtonClick() {
     <div className="App">
       <button onClick={onButtonClick}>Click</button>
     </div>
-
-    <BrowserRouter>
-      <Routes>
-          <Route path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
 
     </>
   );
